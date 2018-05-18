@@ -1,6 +1,6 @@
 BASE = 23
 infinite_point = (BASE, BASE)
-F23 = [(x,y) for x in range(BASE) for y in range(BASE) if (x ** 3 + x * 2 + 7) % BASE == y * y % BASE]
+F_BASE = [(x,y) for x in range(BASE) for y in range(BASE) if (x ** 3 + x * 2 + 7) % BASE == y * y % BASE]
 
 def get_reciprocal(x):
     for i in range(BASE):
@@ -12,7 +12,7 @@ class ECC_Point:
     def __init__(self, x_init, y_init):
         self.x = x_init
         self.y = y_init
-        if self.val() not in F23 and self.val() != infinite_point:
+        if self.val() not in F_BASE and self.val() != infinite_point:
             raise Exception('Invalid initialization')
 
     def val(self):
